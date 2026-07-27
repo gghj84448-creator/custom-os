@@ -1,33 +1,32 @@
-/* Linker script */
+/* Linker Script for x86 Kernel */
 
+OUTPUT_FORMAT("elf32-i386")
+OUTPUT_ARCH(i386)
 ENTRY(_start)
 
 SECTIONS
 {
-    /* Kernel starts at 1MB */
-    . = 0x100000;
+    . = 0x00100000;
     
-    .text :
+    .text ALIGN(0x1000) : AT(ADDR(.text) - 0xC0000000)
     {
-        *(.text)
+        *(.multiboot)
+        *(.text*)
     }
     
-    .rodata :
+    .rodata ALIGN(0x1000) : AT(ADDR(.rodata) - 0xC0000000)
     {
-        *(.rodata)
-        *(.rodata.*)
+        *(.rodata*)
     }
     
-    .data :
+    .data ALIGN(0x1000) : AT(ADDR(.data) - 0xC0000000)
     {
-        *(.data)
-        *(.data.*)
+        *(.data*)
     }
     
-    .bss :
+    .bss ALIGN(0x1000) : AT(ADDR(.bss) - 0xC0000000)
     {
-        *(.bss)
-        *(.bss.*)
         *(COMMON)
+        *(.bss*)
     }
 }
