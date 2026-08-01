@@ -2,5 +2,5 @@
 #include <stdio.h>
 
 void print_logo() {
-    printf("Elyamany OS - الشعار: شعر الحصان\n");
+    printf("Elyamany OS - اليماني او اس\nشعار: شعر الحصان\n");
 }
