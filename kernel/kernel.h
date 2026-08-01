@@ -1,30 +1,13 @@
-/* Kernel header file */
-
-#ifndef KERNEL_H
-#define KERNEL_H
+// kernel.h - نواة: رؤوس أولية
+#pragma once
 
 #include <stdint.h>
-#include <stddef.h>
 
-/* Kernel version */
-#define KERNEL_VERSION "0.1.0"
-#define KERNEL_NAME "Custom OS"
+extern "C" void kernel_main();
 
-/* Basic types */
-typedef unsigned char      uint8_t;
-typedef unsigned short     uint16_t;
-typedef unsigned int       uint32_t;
-typedef unsigned long long uint64_t;
+namespace kernel {
 
-typedef signed char        int8_t;
-typedef signed short       int16_t;
-typedef signed int         int32_t;
-typedef signed long long   int64_t;
+const char* version();
+void initialize();
 
-/* Function prototypes */
-void kernel_main(void);
-void putchar(char c);
-void puts(const char* str);
-void clear_screen(void);
-
-#endif /* KERNEL_H */
+}

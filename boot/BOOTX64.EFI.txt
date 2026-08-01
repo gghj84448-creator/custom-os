@@ -1,0 +1,3 @@
+BOOTX64.EFI is a binary UEFI executable and cannot be stored as plain text here.
+
+Place your UEFI binary at this path once you have a compiled EFI app.
